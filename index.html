@@ -1,379 +1,158 @@
 <!DOCTYPE html>
-<html lang='fr'>
-<head>  
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>KHABAR TODAY - Actualités du Tchad</title>
-    <script src='https://cdn.tailwindcss.com'></script>
-    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap' rel='stylesheet'>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, #D4A574 0%, #8B5A3C 100%); }
-        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .section-divider { background: linear-gradient(90deg, transparent 0%, #D4A574 50%, transparent 100%); }
-    </style>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KABAR TODAY - Actualités du Tchad</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hero-gradient { background: linear-gradient(135deg, #D4A574 0%, #8B5A3C 100%); }
+    .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .section-divider { background: linear-gradient(90deg, transparent 0%, #D4A574 50%, transparent 100%); }
+  </style>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="KABAR TODAY - L'info qui connecte les Tchadiens">
+  <meta property="og:description" content="Actualité du Tchad en temps réel - Politique, économie, société, culture">
+  <meta property="og:image" content="https://infokhabar3-jpg.github.io/kabar-today/og-image.jpg">
+  <meta property="og:url" content="https://infokhabar3-jpg.github.io/kabar-today/">
+  <meta property="og:type" content="website">
 </head>
-<div class="fb-page"
-     data-href="https://www.facebook.com/100090622073539/"
-     data-tabs="timeline"
-     data-width="340"
-     data-height="500"
-     data-small-header="false"
-     data-adapt-container-width="true"
-     data-hide-cover="false"
-     data-show-facepile="true">
-  <blockquote cite="https://www.facebook.com/100090622073539/"
-              class="fb-xfbml-parse-ignore">
-    <a href="https://www.facebook.com/100090622073539/">Khabar Today</a>
-  </blockquote>
-</div>
-<body class='bg-stone-50 text-stone-800'>
-    <!-- Navigation -->
-    <nav class='bg-white/95 backdrop-blur-sm fixed w-full top-0 z-50 shadow-sm'>
-        <div class='max-w-7xl mx-auto px-6 py-4'>
-            <div class='flex justify-between items-center'>
-                <div class='flex items-center space-x-3'>
-                    <div class='w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg flex items-center justify-center'>
-                        <i class='fas fa-newspaper text-white text-lg'></i>
-                    </div>
-                    <h1 class='text-2xl font-black text-stone-800'>KABAR TODAY</h1>
-                </div>
-                <div class='hidden md:flex items-center space-x-8'>
-                    <a href='#politique' class='text-stone-600 hover:text-amber-600 font-medium transition-colors'>Politique</a>
-                    <a href='#economie' class='text-stone-600 hover:text-amber-600 font-medium transition-colors'>Économie</a>
-                    <a href='#societe' class='text-stone-600 hover:text-amber-600 font-medium transition-colors'>Société</a>
-                    <a href='#culture' class='text-stone-600 hover:text-amber-600 font-medium transition-colors'>Culture</a>
-                    <button class='bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg font-medium transition-colors'>
-                        <i class='fab fa-facebook mr-2'></i>Suivre
-                    </button>
-                </div>
-            </div>
+
+<body class="bg-stone-50 text-stone-800">
+
+  <!-- SDK Facebook (obligatoire pour afficher la Timeline) -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v24.0">
+  </script>
+
+  <!-- Navigation -->
+  <nav class="bg-white/95 backdrop-blur-sm fixed w-full top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg flex items-center justify-center">
+          <i class="fas fa-newspaper text-white text-lg"></i>
         </div>
-    </nav>
+        <h1 class="text-2xl font-black text-stone-800">KABAR TODAY</h1>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#politique" class="text-stone-600 hover:text-amber-600 font-medium">Politique</a>
+        <a href="#economie" class="text-stone-600 hover:text-amber-600 font-medium">Économie</a>
+        <a href="#societe" class="text-stone-600 hover:text-amber-600 font-medium">Société</a>
+        <a href="#culture" class="text-stone-600 hover:text-amber-600 font-medium">Culture</a>
+        <a href="https://www.facebook.com/100090622073539" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg font-medium">
+          <i class="fab fa-facebook mr-2"></i>Suivre
+        </a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class='hero-gradient min-h-screen flex items-center justify-center pt-20'>
-        <div class='max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center'>
-            <div class='text-white'>
-                <h1 class='text-6xl font-black mb-6 text-shadow leading-tight'>
-                    L'Information<br>
-                    qui <span class='text-yellow-300'>connecte</span><br>
-                    les Tchadiens
-                </h1>
-                <p class='text-xl mb-8 text-stone-100 leading-relaxed'>
-                    KABAR TODAY est votre fenêtre sur l'actualité du Tchad et de la région. 
-                    Suivez l'information en temps réel, partagez avec votre communauté et boostez votre présence numérique.
-                </p>
-                <div class='flex flex-col sm:flex-row gap-4'>
-                    <button class='bg-white text-stone-800 px-8 py-4 rounded-lg font-bold hover:bg-stone-100 transition-colors shadow-lg'>
-                        <i class='fas fa-rocket mr-2'></i>Boostez votre page
-                    </button>
-                    <button class='border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-stone-800 transition-colors'>
-                        <i class='fas fa-share-alt mr-2'></i>Partager sur Facebook
-                    </button>
-                </div>
-            </div>
-            <div class='relative'>
-                <div class='bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20'>
-                    <div class='flex items-center mb-6'>
-                        <div class='w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mr-4'>
-                            <i class='fas fa-chart-line text-stone-800 text-xl'></i>
-                        </div>
-                        <div>
-                            <h3 class='text-white font-bold text-lg'>Statistiques de croissance</h3>
-                            <p class='text-stone-200'>Augmentez votre portée</p>
-                        </div>
-                    </div>
-                    <div class='space-y-4'>
-                        <div class='flex justify-between items-center'>
-                            <span class='text-stone-200'>Portée Facebook</span>
-                            <span class='text-yellow-300 font-bold'>+250%</span>
-                        </div>
-                        <div class='flex justify-between items-center'>
-                            <span class='text-stone-200'>Engagement</span>
-                            <span class='text-yellow-300 font-bold'>+180%</span>
-                        </div>
-                        <div class='flex justify-between items-center'>
-                            <span class='text-stone-200'>Partages</span>
-                            <span class='text-yellow-300 font-bold'>+320%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <section class="hero-gradient min-h-screen flex items-center justify-center pt-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="text-white">
+        <h1 class="text-6xl font-black mb-6 text-shadow leading-tight">
+          L'Information<br>
+          qui <span class="text-yellow-300">connecte</span><br>
+          les Tchadiens
+        </h1>
+        <p class="text-xl mb-8 text-stone-100 leading-relaxed">
+          KABAR TODAY est votre fenêtre sur l'actualité du Tchad et de la région. Suivez l'information en temps réel, partagez avec votre communauté.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button class="bg-white text-stone-800 px-8 py-4 rounded-lg font-bold hover:bg-stone-100 transition-colors shadow-lg">
+            <i class="fas fa-rocket mr-2"></i>Boostez votre page
+          </button>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://infokhabar3-jpg.github.io/kabar-today/" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-stone-800 transition-colors">
+            <i class="fas fa-share-alt mr-2"></i>Partager sur Facebook
+          </a>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class='max-w-7xl mx-auto px-6 py-16'>
-        
-        <!-- Politique Section -->
-        <section id='politique' class='mb-20'>
-            <div class='flex items-center mb-12'>
-                <div class='w-1 h-12 bg-amber-600 mr-6'></div>
-                <div>
-                    <h2 class='text-4xl font-black text-stone-800'>Politique & Gouvernance</h2>
-                    <p class='text-stone-600 text-lg mt-2'>Les décisions qui façonnent l'avenir du Tchad</p>
-                </div>
+      </div>
+      <div class="relative">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-chart-line text-stone-800 text-xl"></i>
             </div>
-            
-            <div class='grid md:grid-cols-3 gap-8'>
-                <article class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative'>
-                        <div class='absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold'>URGENT</div>
-                        <div class='absolute bottom-4 left-4 text-white'>
-                            <p class='text-sm opacity-90'>Gouvernement</p>
-                            <p class='font-bold'>Nouvelle nomination</p>
-                        </div>
-                    </div>
-                    <div class='p-6'>
-                        <h3 class='text-xl font-bold mb-3 text-stone-800'>Le président nomme son frère Daoussa Deby à un poste clé</h3>
-                        <p class='text-stone-600 mb-4'>Par décret publié ce mercredi, Mahamat Idriss Déby a nommé son petit frère, Daoussa Idriss Deby Itno, Ministre Secrétaire particulier du président...</p>
-                        <div class='flex justify-between items-center'>
-                            <span class='text-sm text-stone-500'>Il y a 2 heures</span>
-                            <button class='text-amber-600 hover:text-amber-700 font-medium'>
-                                <i class='fas fa-share mr-1'></i>Partager
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-48 bg-gradient-to-br from-green-500 to-teal-600 relative'>
-                        <div class='absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold'>ÉLECTIONS</div>
-                        <div class='absolute bottom-4 left-4 text-white'>
-                            <p class='text-sm opacity-90'>Sénatoriales</p>
-                            <p class='font-bold'>Résultats officiels</p>
-                        </div>
-                    </div>
-                    <div class='p-6'>
-                        <h3 class='text-xl font-bold mb-3 text-stone-800'>Le Conseil constitutionnel tchadien annonce la victoire électorale du parti au pouvoir</h3>
-                        <p class='text-stone-600 mb-4'>Le parti du gouvernement transitoire en place a largement remporté les premières élections sénatoriales du Tchad...</p>
-                        <div class='flex justify-between items-center'>
-                            <span class='text-sm text-stone-500'>Il y a 5 heures</span>
-                            <button class='text-amber-600 hover:text-amber-700 font-medium'>
-                                <i class='fas fa-share mr-1'></i>Partager
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-48 bg-gradient-to-br from-orange-500 to-red-600 relative'>
-                        <div class='absolute top-4 left-4 bg-yellow-500 text-stone-800 px-3 py-1 rounded-full text-sm font-bold'>ANALYSE</div>
-                        <div class='absolute bottom-4 left-4 text-white'>
-                            <p class='text-sm opacity-90'>Opposition</p>
-                            <p class='font-bold'>Situation politique</p>
-                        </div>
-                    </div>
-                    <div class='p-6'>
-                        <h3 class='text-xl font-bold mb-3 text-stone-800'>Tchad : l'opposant Succès Masra accusé d'incitation à la haine</h3>
-                        <p class='text-stone-600 mb-4'>Le principal opposant tchadien a été interpellé dès l'aube à Njadéma. La justice tchadienne évoque des messages en lien avec des affrontements...</p>
-                        <div class='flex justify-between items-center'>
-                            <span class='text-sm text-stone-500'>Il y a 8 heures</span>
-                            <button class='text-amber-600 hover:text-amber-700 font-medium'>
-                                <i class='fas fa-share mr-1'></i>Partager
-                            </button>
-                        </div>
-                    </div>
-                </article>
+            <div>
+              <h3 class="text-white font-bold text-lg">Statistiques de croissance</h3>
+              <p class="text-stone-200">Augmentez votre portée</p>
             </div>
-        </section>
-
-        <!-- Économie Section -->
-        <section id='economie' class='mb-20'>
-            <div class='flex items-center mb-12'>
-                <div class='w-1 h-12 bg-green-600 mr-6'></div>
-                <div>
-                    <h2 class='text-4xl font-black text-stone-800'>Économie & Développement</h2>
-                    <p class='text-stone-600 text-lg mt-2'>Les opportunités qui transforment le Tchad</p>
-                </div>
-            </div>
-            
-            <div class='grid md:grid-cols-2 gap-12'>
-                <div class='bg-white rounded-2xl shadow-lg p-8 card-hover'>
-                    <div class='flex items-center mb-6'>
-                        <div class='w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4'>
-                            <i class='fas fa-chart-line text-white text-xl'></i>
-                        </div>
-                        <div>
-                            <h3 class='text-2xl font-bold text-stone-800'>Croissance économique</h3>
-                            <p class='text-stone-600'>Indicateurs positifs pour 2025</p>
-                        </div>
-                    </div>
-                    <div class='space-y-4 mb-6'>
-                        <div class='flex justify-between items-center py-2 border-b border-stone-100'>
-                            <span class='text-stone-600'>PIB projeté</span>
-                            <span class='text-green-600 font-bold'>+4.2%</span>
-                        </div>
-                        <div class='flex justify-between items-center py-2 border-b border-stone-100'>
-                            <span class='text-stone-600'>Investissements</span>
-                            <span class='text-green-600 font-bold'>+15%</span>
-                        </div>
-                        <div class='flex justify-between items-center py-2'>
-                            <span class='text-stone-600'>Exportations</span>
-                            <span class='text-green-600 font-bold'>+8.5%</span>
-                        </div>
-                    </div>
-                    <button class='w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition-colors'>
-                        Voir le rapport complet
-                    </button>
-                </div>
-
-                <div class='bg-white rounded-2xl shadow-lg p-8 card-hover'>
-                    <div class='flex items-center mb-6'>
-                        <div class='w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4'>
-                            <i class='fas fa-handshake text-white text-xl'></i>
-                        </div>
-                        <div>
-                            <h3 class='text-2xl font-bold text-stone-800'>Partenariats</h3>
-                            <p class='text-stone-600'>Coopération internationale</p>
-                        </div>
-                    </div>
-                    <div class='space-y-4'>
-                        <div class='bg-stone-50 rounded-lg p-4'>
-                            <h4 class='font-bold text-stone-800 mb-2'>Accord avec la Chine</h4>
-                            <p class='text-stone-600 text-sm'>Projet d'infrastructure routière de 500 km</p>
-                        </div>
-                        <div class='bg-stone-50 rounded-lg p-4'>
-                            <h4 class='font-bold text-stone-800 mb-2'>Coopération UE-Tchad</h4>
-                            <p class='text-stone-600 text-sm'>Programme de développement agricole</p>
-                        </div>
-                        <div class='bg-stone-50 rounded-lg p-4'>
-                            <h4 class='font-bold text-stone-800 mb-2'>Investissements indiens</h4>
-                            <p class='text-stone-600 text-sm'>Technologies de l'information</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Société & Culture Section -->
-        <section id='societe' class='mb-20'>
-            <div class='flex items-center mb-12'>
-                <div class='w-1 h-12 bg-purple-600 mr-6'></div>
-                <div>
-                    <h2 class='text-4xl font-black text-stone-800'>Société & Culture</h2>
-                    <p class='text-stone-600 text-lg mt-2'>Les histoires qui font la fierté du Tchad</p>
-                </div>
-            </div>
-            
-            <div class='grid md:grid-cols-4 gap-6'>
-                <div class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-32 bg-gradient-to-br from-purple-500 to-pink-500'></div>
-                    <div class='p-4'>
-                        <h3 class='font-bold text-stone-800 mb-2'>Festival culturel</h3>
-                        <p class='text-stone-600 text-sm mb-3'>Célébration de la diversité tchadienne</p>
-                        <span class='text-xs text-purple-600 font-medium'>Culture</span>
-                    </div>
-                </div>
-
-                <div class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-32 bg-gradient-to-br from-yellow-500 to-orange-500'></div>
-                    <div class='p-4'>
-                        <h3 class='font-bold text-stone-800 mb-2'>Innovation sociale</h3>
-                        <p class='text-stone-600 text-sm mb-3'>Jeunes entrepreneurs tchadiens</p>
-                        <span class='text-xs text-orange-600 font-medium'>Société</span>
-                    </div>
-                </div>
-
-                <div class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-32 bg-gradient-to-br from-green-500 to-teal-500'></div>
-                    <div class='p-4'>
-                        <h3 class='font-bold text-stone-800 mb-2'>Éducation</h3>
-                        <p class='text-stone-600 text-sm mb-3'>Nouveaux programmes scolaires</p>
-                        <span class='text-xs text-green-600 font-medium'>Éducation</span>
-                    </div>
-                </div>
-
-                <div class='bg-white rounded-2xl shadow-lg overflow-hidden card-hover'>
-                    <div class='h-32 bg-gradient-to-br from-blue-500 to-indigo-500'></div>
-                    <div class='p-4'>
-                        <h3 class='font-bold text-stone-800 mb-2'>Santé publique</h3>
-                        <p class='text-stone-600 text-sm mb-3'>Campagnes de prévention</p>
-                        <span class='text-xs text-blue-600 font-medium'>Santé</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Boost Section -->
-        <section class='bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl p-12 text-white text-center'>
-            <h2 class='text-4xl font-black mb-6'>Boostez votre présence numérique</h2>
-            <p class='text-xl mb-8 opacity-90 max-w-3xl mx-auto'>
-                KABAR TODAY vous aide à augmenter votre portée sur Facebook avec des contenus engageants et partageables qui résonnent avec votre audience tchadienne.
-            </p>
-            <div class='grid md:grid-cols-3 gap-8 mb-8'>
-                <div class='text-center'>
-                    <div class='w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4'>
-                        <i class='fas fa-users text-2xl'></i>
-                    </div>
-                    <h3 class='font-bold text-lg mb-2'>Audience ciblée</h3>
-                    <p class='text-sm opacity-80'>Atteignez les Tchadiens intéressés par l'actualité locale</p>
-                </div>
-                <div class='text-center'>
-                    <div class='w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4'>
-                        <i class='fas fa-share-alt text-2xl'></i>
-                    </div>
-                    <h3 class='font-bold text-lg mb-2'>Contenu viral</h3>
-                    <p class='text-sm opacity-80'>Des articles conçus pour être partagés massivement</p>
-                </div>
-                <div class='text-center'>
-                    <div class='w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4'>
-                        <i class='fas fa-chart-line text-2xl'></i>
-                    </div>
-                    <h3 class='font-bold text-lg mb-2'>Croissance rapide</h3>
-                    <p class='text-sm opacity-80'>Augmentez vos statistiques en quelques semaines</p>
-                </div>
-            </div>
-            <button class='bg-white text-amber-600 px-12 py-4 rounded-lg font-bold text-lg hover:bg-stone-100 transition-colors shadow-lg'>
-                <i class='fab fa-facebook mr-2'></i>Connecter avec Facebook
-            </button>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class='bg-stone-800 text-white py-12'>
-        <div class='max-w-7xl mx-auto px-6 text-center'>
-            <div class='flex items-center justify-center space-x-3 mb-6'>
-                <div class='w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg flex items-center justify-center'>
-                    <i class='fas fa-newspaper text-white text-lg'></i>
-                </div>
-                <h3 class='text-2xl font-black'>KABAR TODAY</h3>
-            </div>
-            <p class='text-stone-300 mb-6 max-w-2xl mx-auto'>
-                Votre source d'information fiable au Tchad. Boostez votre page Facebook avec du contenu engageant et actualisé.
-            </p>
-            <div class='flex justify-center space-x-6 mb-6'>
-                <a href='#' class='text-stone-300 hover:text-white transition-colors'>
-                    <i class='fab fa-facebook text-2xl'></i>
-                </a>
-                <a href='#' class='text-stone-300 hover:text-white transition-colors'>
-                    <i class='fab fa-twitter text-2xl'></i>
-                </a>
-                <a href='#' class='text-stone-300 hover:text-white transition-colors'>
-                    <i class='fab fa-instagram text-2xl'></i>
-                </a>
-            </div>
-            <p class='text-stone-400 text-sm'>
-                © 2025 KABAR TODAY - Tous droits réservés
-            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center"><span class="text-stone-200">Portée Facebook</span><span class="text-yellow-300 font-bold">+250%</span></div>
+            <div class="flex justify-between items-center"><span class="text-stone-200">Engagement</span><span class="text-yellow-300 font-bold">+180%</span></div>
+            <div class="flex justify-between items-center"><span class="text-stone-200">Partages</span><span class="text-yellow-300 font-bold">+320%</span></div>
+          </div>
         </div>
-    </footer>
-</body><div class="fb-page"
-     data-href="https://www.facebook.com/100090622073539/"
-     data-tabs="timeline"
-     data-width="340"
-     data-height="500"
-     data-small-header="false"
-     data-adapt-container-width="true"
-     data-hide-cover="false"
-     data-show-facepile="true">
-  <blockquote cite="https://www.facebook.com/100090622073539/"
-              class="fb-xfbml-parse-ignore">
-    <a href="https://www.facebook.com/100090622073539/">Khabar Today</a>
-  </blockquote>
-</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTUALITÉS FACEBOOK -->
+  <section id="actualites" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black text-stone-800 mb-4">Actualités en direct</h2>
+        <p class="text-lg text-stone-600">Les derniers posts de notre page Facebook</p>
+      </div>
+
+      <!-- Timeline Facebook -->
+      <div class="flex justify-center">
+        <div class="fb-page"
+             data-href="https://www.facebook.com/100090622073539"
+             data-tabs="timeline"
+             data-width="500"
+             data-height="600"
+             data-small-header="false"
+             data-adapt-container-width="true"
+             data-hide-cover="false"
+             data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/100090622073539" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/100090622073539">Khabar Today</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-stone-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center space-x-3 mb-6">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-700 rounded-lg flex items-center justify-center">
+          <i class="fas fa-newspaper text-white text-lg"></i>
+        </div>
+        <h3 class="text-2xl font-black">KABAR TODAY</h3>
+      </div>
+      <p class="text-stone-300 mb-6 max-w-2xl mx-auto">
+        Votre source d'information fiable au Tchad. Boostez votre page Facebook avec du contenu engageant.
+      </p>
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="https://www.facebook.com/100090622073539" target="_blank" class="text-stone-300 hover:text-white transition-colors">
+          <i class="fab fa-facebook text-2xl"></i>
+        </a>
+        <a href="#" class="text-stone-300 hover:text-white transition-colors">
+          <i class="fab fa-twitter text-2xl"></i>
+        </a>
+        <a href="#" class="text-stone-300 hover:text-white transition-colors">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+      </div>
+      <p class="text-stone-400 text-sm">© 2025 KABAR TODAY - Tous droits réservés</p>
+    </div>
+  </footer>
+
+</body>
 </html>
